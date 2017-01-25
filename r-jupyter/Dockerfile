@@ -1,8 +1,12 @@
 
+# Build base-jupyter first
 FROM base-jupyter
+
 
 USER root
 
+
+# Install additional dependencies
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     fonts-dejavu \
@@ -10,6 +14,8 @@ RUN apt-get update && \
     gcc && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+
+# Install conda dependencies for R kernel
 RUN conda config --add channels r && \
     conda install --quiet --yes \
     'r-base=3.3.1 1' \
@@ -31,6 +37,8 @@ RUN conda config --add channels r && \
     'r-crayon=1.3*' \
     'r-randomforest=4.6*' && conda clean -tipsy
 
+
+# Install the ISLR library
 RUN cd /opt && \
     wget https://cran.r-project.org/src/contrib/ISLR_1.0.tar.gz && \
     tar zxvf ISLR_1.0.tar.gz && \
