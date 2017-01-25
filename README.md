@@ -15,12 +15,22 @@ To build any of the images, run the build script in that image's folder. The `ba
 
 ## Running
 
-Use the `run.sh` script in the corresponding image's folder. Two external folders will be mounted into the running container, and by default they are both your host's `$HOME`. They are modified with the following options.
+Use the `run.sh` script in the corresponding image's folder. Then run the `start-notebook.sh` script, which is in the container root user's path. This provides a URL hash required to access the notebook, such as:
+
+```
+    Copy/paste this URL into your browser when you connect for the first time,
+    to login with a token:
+        http://localhost:8888/?token=3e75593fe1a03cf6540c1c4338b33a29e76399bc9fee8c4e
+```
+
+If running remotely, replace `localhost` with the appropriate IP address.
+
+#### Options
+
+The `run.sh` can mount two external directories, using the following options:
 * `-w|--workdir host_directory_path`: Jupyter's working directory. This becomes `/opt/workdir` in the container.
 * `-d|--datadir host_directory_path`: A directory where data is stored. This becomes `/opt/datadir` in the container.
 These options are useful for organization's sake, and also in the case when a working or data directory isn't located under your `$HOME` directory.
-
-Once inside the container, execute the `start-notebook.sh` script, which is in the root user's `$PATH`. This will start Jupyter and provide a hashed URL where you can access the notebook server. This string is required for security purposes in order to access the notebook. Copy and paste the provided link into your browser. (In the case of a remote server, replace `localhost` with the appropriate IP address.
 
 ## Known Issues
 
