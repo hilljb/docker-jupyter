@@ -30,7 +30,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 # remove existing container if it is already running
-if [[ "$(docker ps -a | grep -c "base-jupyter")" -gt "0" ]]; then
+if [[ "$(docker ps -a | grep -c "r-jupyter")" -gt "0" ]]; then
     echo "-- removing existing running container in 5 seconds (Ctrl+c to halt termination)"
     sleep 5
     docker rm -f base-jupyter
