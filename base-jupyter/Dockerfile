@@ -1,12 +1,10 @@
 
 
-# See: https://github.com/docker-library/repo-info/blob/master/repos/debian/tag-details.md
-# This is the recommended debian:stretch commit point (stable freeze on 2017-02-05)
-FROM debian@sha256:14b31e13a88d0ca472960e6ef84c57e54371cf319e391aa0b4592a77b9ec941f
+FROM debian:testing
 
 
 # Environmental variables
-ENV DEB_NAME stretch
+ENV DEB_NAME testing
 ENV DEB_REPO http://cdn-fastly.deb.debian.org 
 
 
