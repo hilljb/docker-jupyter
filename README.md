@@ -37,4 +37,3 @@ These options are useful for organization's sake, and also in the case when a wo
 ## Known Issues
 
 * If a browser is already running and attempting to contact the host on port 8888, the notebook server may ask for a password. If this happens, restart the container while ensuring that any existing browser tabs pointing at the server are closed.
-* I'd love to include `start-notebook.sh` as the entry command for the images, but this seems to cause the exact same issue as the previous point: Jupyter asks for a password. I have no idea why this is the case. If I can debug this at some point, I'll make the notebook servers automatically start when the container is loaded.
