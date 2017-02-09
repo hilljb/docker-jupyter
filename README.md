@@ -8,10 +8,12 @@ Several Dockerfiles are included:
 
 * `base-jupyter`: Contains the base Debian (stretch) system and everything to run a Jupyter Notebook server.
 * `r-jupyter`: Extends `base-jupyter` with the R kernel, several R packages, and the [ISLR](http://www-bcf.usc.edu/~gareth/ISL/) library.
+* `python-jupyter`: Extends `base-jupyter` with Python (2 and 3) environments focused on data science, loading common packages such as scikit-learn, pandas, seaborn, etc.
+* `pyspark-jupyter`: Extends `python-jupyter` with Apache Spark.
 
 ## Installation
 
-To build any of the images, run the build script in that image's folder. The `base-jupyter` image must first be built and available on your system to build any other image.
+To build any of the images, run the build script in that image's folder. The `base-jupyter` image must first be built and available on your system to build any other image. The `pyspark-jupyter` image depends on the `python-jupyter` image.
 
 ## Running
 
