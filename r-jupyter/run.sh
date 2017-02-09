@@ -46,4 +46,4 @@ docker run \
     -v $DATADIR:/opt/datadir \
     -v $WORKDIR:/opt/workdir \
     -it r-jupyter \
-    bash
+    start-notebook.sh

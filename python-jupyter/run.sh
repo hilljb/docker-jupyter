@@ -30,20 +30,20 @@ while [[ $# -gt 0 ]]; do
 done
 
 # remove existing container if it is already running
-if [[ "$(docker ps -a | grep -c "base-jupyter")" -gt "0" ]]; then
+if [[ "$(docker ps -a | grep -c "python-jupyter")" -gt "0" ]]; then
     echo "-- removing existing running container in 5 seconds (Ctrl+c to halt termination)"
     sleep 5
-    docker rm -f base-jupyter
+    docker rm -f python-jupyter
 fi
 
 # run it
-echo "-- starting container base-jupyter"
+echo "-- starting container python-jupyter"
 echo "-- Jupyter will give you a URL. (Replace localhost with IP address if needed.)"
 docker run \
-    --name base-jupyter \
+    --name python-jupyter \
     --rm \
     -p 8888:8888 \
     -v $DATADIR:/opt/datadir \
     -v $WORKDIR:/opt/workdir \
-    -it base-jupyter \
+    -it python-jupyter \
     start-notebook.sh
