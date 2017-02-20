@@ -6,6 +6,7 @@ FROM debian:testing
 # Environmental variables
 ENV DEB_NAME testing
 ENV DEB_REPO http://cdn-fastly.deb.debian.org 
+ENV MINICONDA_VERS Miniconda3-4.2.12-Linux-x86_64.sh 
 
 
 # As root user (the entire docker build is as root - external mount points are jacked otherwise)
@@ -76,9 +77,9 @@ RUN mkdir /opt/workdir && \
 # Install miniconda
 RUN cd /tmp && \
     mkdir -p $CONDA_DIR && \
-    wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
-    /bin/bash Miniconda3-latest-Linux-x86_64.sh -f -b -p $CONDA_DIR && \
-    rm Miniconda3-latest-Linux-x86_64.sh && \
+    wget --quiet https://repo.continuum.io/miniconda/$MINICONDA_VERS && \
+    /bin/bash $MINICONDA_VERS -f -b -p $CONDA_DIR && \
+    rm $MINICONDA_VERS && \
     $CONDA_DIR/bin/conda config --system --add channels conda-forge && \
     $CONDA_DIR/bin/conda config --system --set auto_update_conda false && \
     conda clean -tipsy
