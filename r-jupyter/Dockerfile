@@ -1,6 +1,6 @@
 
 # Build base-jupyter first
-FROM base-jupyter
+FROM quay.io/hilljb/base-jupyter
 
 
 USER root

@@ -45,5 +45,5 @@ docker run \
     -p 8888:8888 \
     -v $DATADIR:/opt/datadir \
     -v $WORKDIR:/opt/workdir \
-    -it r-jupyter \
+    -it quay.io/hilljb/r-jupyter \
     start-notebook.sh
